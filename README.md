@@ -1,4 +1,4 @@
-# 🛒 Supermarket Sales Dashboard — Power BI
+# 🛒 Supermarket Sales Dashboard - Power BI
 
 A sales dashboard built on **5,901 transactions** across **2024–2025**, covering $1.6M in revenue across the United States.
 
