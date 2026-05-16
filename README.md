@@ -6,9 +6,9 @@ A sales dashboard built on **5,901 transactions** across **2024–2025**, coveri
 
 **1.Total Sales generared across United State is $1.6M**
 
-**2.Total Profite  generared across United State is $184.1K**
+**2.Total Profite generared across United State is $184.1K**
 
-**3. Average days required for delivery of product is 4 days.**
+**3. Average days required for delivery is 4 days.**
 
 **4. Revenue grew. Profit margin didn't.**
 Sales jumped 77% from 2024 to 2025. But profit margin dropped from 14.5% to 9.3%. Growing fast while earning less per dollar is a risk, not a win.
