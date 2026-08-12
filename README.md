@@ -59,3 +59,4 @@ A full audit was done on the profit column before publishing any numbers.
 
 Demo Preview :
 - Dashboard : https://github.com/yashmonde24/Supermarket-Sales-Dashboard/blob/main/outputs/salesdashboard.png
+- Sales Forecast : https://github.com/yashmonde24/Supermarket-Sales-Dashboard/blob/main/outputs/salesforecasting.png
