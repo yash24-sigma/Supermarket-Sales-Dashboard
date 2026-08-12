@@ -56,3 +56,6 @@ A full audit was done on the profit column before publishing any numbers.
 |---|---|
 | `ANALYSIS.pbix` | Power BI dashboard file |
 | `SuperStore Sales edited.xlsx` | Cleaned source dataset |
+
+Demo Preview :
+- Dashboard : https://github.com/yashmonde24/Supermarket-Sales-Dashboard/blob/main/outputs/salesdashboard.png
