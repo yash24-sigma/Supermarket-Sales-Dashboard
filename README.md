@@ -1,62 +1,114 @@
-# 🛒 Supermarket Sales Dashboard - Power BI
+## Supermarket Sales Dashboard — Power BI
 
-A sales dashboard built on **5,901 transactions** across **2024–2025**, covering $1.6M in revenue across the United States.
+Two years of US supermarket sales data, cleaned, analyzed, and turned into a dashboard that shows where the business is actually making money — and where it isn't.
 
-## 🔍 Key Insights
+## 1. Background and Overview
 
-**1.Total Sales generared across United State is $1.6M**
+A US-based supermarket chain needed a clear picture of its sales and profit performance across states, product categories, and customer types.
 
-**2.Total Profite generared across United State is $184.1K**
+This project builds a full sales dashboard in Power BI covering 2024 and 2025 — with a data audit done before any analysis, to make sure the numbers are trustworthy.
 
-**3. Average days required for delivery is 4 days.**
+Detail	Info
+Tool	Power BI
+Dataset Size	5,901 rows
+Period	Jan 2024 – Dec 2025
+Total Revenue	$1.6M
+Adjusted Profit	$184.1K
 
-**4.The Business is Profitable — But Margins Are Shrinking**
-The business made $184.1K profit on $1.6M in sales. That means for every $100 sold, only about $11.50 is actual profit. And this number was higher in 2024 — so profit per sale is getting smaller over time even though total sales are growing.
+## 2. Data Structure Overview
 
-**5.California Carries the Business**
-California alone brought $335.2K in sales — more than New York and Texas combined. If California had a bad year, the whole business would feel it. Too much dependence on one state is a risk.
+The dataset is a single flat table with the following columns:
 
-**6.Office Supplies Sells the Most — But is it the Most Profitable?**
-Office Supplies leads at $643.7K in sales. But profit has very little difference between Office ($84,628).and Technology ($84,558). Technology ($470.6K sales) makes far more profit per dollar sold. Selling more does not always mean earning more.
+Order Info — Order ID, Order Date, Ship Date, Ship Mode
 
-**7.Furniture Is Quietly Draining Profit**
-Furniture sits at $451.5K in sales — almost equal to Technology. But Furniture's profit is only around $14,939. That means the business is doing a lot of work for very little return on Furniture products.
+Customer Info — Customer ID, Segment (Consumer / Corporate / Home Office)
 
-**8.Phones Sell the Most — But Copiers Make More Profit**
-Phones top the sub-category chart at $196.6K. But if you look at actual profit, Binders make more profit than  what Phones make. The product that sells the most is not always the one making the most money.
+Location — City, State, Region
 
-**9.East Region Is Underperforming**
-East region is #2 in sales at 28.75% but runs a lower profit margin than West. West leads in both sales (33.37%) and efficiency. South is the smallest region at 16.1% — a clear growth opportunity.
- 
-**10.Regular Customers Drive the Business**
-Consumer segment brings in $753K — almost half of total revenue. Corporate adds $509.7K and Home Office $303K. The business depends heavily on individual buyers, not companies.
+Product Info — Category, Sub-Category, Product Name
 
-**11. Customers prefers Cash On Delivery for Payment Mode  rather than 
+Financials — Sales, Quantity, Profit, Returns, Payment Mode
 
-## 🧹 Data Quality Fix
+Note: No cost or discount column exists in the raw data. Profit is pre-calculated in the source file.
 
-A full audit was done on the profit column before publishing any numbers.
+## 3.  Executive Summary
 
-- **14 rows** had profit greater than sales — mathematically impossible. These were excluded.
-- **108 rows** had margins below -100% — flagged for review.
-- Fix applied using **Power Query** (flag column) + **DAX** (Adjusted Profit measure).
-- Result: profit corrected from $175.3K → **$184.1K**.
+The business generated $1.6M in sales and $184.1K in adjusted profit across two years. On the surface that looks healthy. But two things stand out when you dig in:
 
----
+Sales grew 77% from 2024 to 2025. Profit margin fell from 14.5% to 9.3% in the same period. The business is scaling but earning less per sale.
+Some of the strongest states by revenue are quietly losing money. High sales numbers alone do not tell the full story.
 
-## 🛠 Tools Used
+The dashboard makes both of these visible — along with product, region, and customer breakdowns.
 
-`Power BI` &nbsp;|&nbsp; `Power Query` &nbsp;|&nbsp; `DAX` &nbsp;|&nbsp; `Excel` &nbsp;|&nbsp; 
+## 4.  Insights Deep Dive
+- Revenue vs Profit — Not the Same Thing
+ Sales jumped 77% year over year. But profit margin dropped from 14.5% in 2024 to 9.3% in 2025.
+ For every $100 sold, the business kept only $11.50 as profit. And that number is shrinking. Growing revenue with falling margins is a warning sign worth           investigating.
 
----
+- California Carries Too Much Weight
+  California brought in $335.2K in sales — more than New York ($186.7K) and Texas ($116.3K) combined. That level of dependence on one state is a business risk.      One bad quarter in California and the overall numbers take a serious hit.
 
-## 📁 Files
+- Office Supplies vs Technology — Sales Lie, Margins Tell the Truth
+  Category	Sales	Profit
+  Office Supplies	$643.7K	$84,628
+  Technology	$470.6K	$84,558
+  Furniture	$451.5K	$14,939
+  
+  Office Supplies sells the most. But Technology makes nearly the same profit on $173K less in sales. Furniture does $451.5K in sales for only $14,939 in profit —   a 3.3% margin. The business is spending effort on Furniture for very little return.
 
-| File | Description |
-|---|---|
-| `ANALYSIS.pbix` | Power BI dashboard file |
-| `SuperStore Sales edited.xlsx` | Cleaned source dataset |
+- Texas Is Losing Money
+  Texas ranks 3rd by sales at $116.3K. Its actual profit is negative. The business is spending resources to sell in Texas and coming out behind. This needs a root   cause investigation — shipping costs, discounts, or product mix could all be factors.
 
-Demo Preview :
+- The Best-Selling Sub-Category Is Not the Most Profitable
+  Phones lead sub-category sales at $196.6K. But Binders generate more profit than Phones despite lower sales. Volume and profitability are two different metrics    and they often point in opposite directions.
+
+- East Region Is Second-Largest but Least Efficient
+  Region	Sales Share	Margin
+  West	33.37%	12.99%
+  East	28.75%	11.86%
+  Central	21.78%	8.05%
+  South	16.10%	10.53%
+
+  West leads in both volume and efficiency. Central has the lowest margin at 8.05% — almost half of West. South is the smallest region and likely has the most       room to grow.
+
+- Consumers Drive the Revenue
+  The Consumer segment accounts for $753K — nearly half of total revenue. Corporate adds $509.7K and Home Office $303K. The business leans heavily on individual     buyers rather than business clients.
+
+- Cash on Delivery Is the Top Payment Method
+  By actual revenue, COD leads at 42.6%, followed by Online at 35.4% and Cards at 22%. The original dashboard chart showed the wrong order because it was counting   number of orders instead of revenue value — this was corrected.
+
+## 5.  Recommendations
+
+- Investigate Texas immediately High sales, negative profit — something is off. Check if heavy discounts or high shipping costs are behind this.
+
+- Reassess the Furniture category $451.5K in sales for a 3.3% margin is not worth the logistics cost. Either reprice or reduce focus.
+
+- Reduce California dependence One state driving this much revenue is a concentration risk. South at 16.1% looks underdeveloped and could be a growth target.
+
+- Push Technology over Office Supplies Same profit on lower sales means better efficiency. Technology is the smarter category to focus on.
+
+- Review Central region operations 8.05% margin is the lowest across all regions. Pricing, product mix, or logistics costs could be pulling it down.
+
+## 6.  Assumptions and Limitations
+- Profit values are taken as-is from the source file. No cost or discount data was available to verify them independently.
+- 14 rows where profit exceeded sales were excluded from calculations and treated as data entry errors.
+- 108 rows with margins below -100% were flagged for review but kept in the raw data.
+- The dataset covers the US only. No international sales data is included.
+- Payment mode percentages in the original dashboard were based on order count. All payment analysis here uses revenue value instead.
+
+## 7.  Future Enhancements
+- Profitability drill-down — let users click a state or category and see exactly which products are behind the losses.
+- Discount column — would make it possible to properly explain why some rows have negative profit.
+- Return rate page — returns data exists in the dataset but is not currently visualized.
+- Forecasting — project 2026 trends using Power BI's built-in forecast feature.
+- Live data refresh — connect to a live source so the dashboard updates without manual file uploads.
+  
+## 8. Deliverables
+File	What It Contains
+ANALYSIS.pbix	Full Power BI dashboard with all visuals, DAX measures and Power Query steps
+SuperStore_Sales_edited.xlsx	Source dataset — 5,901 rows
+README.md	Full project documentation
+
+## 9. Outcomes Preview :
 - Dashboard : https://github.com/yashmonde24/Supermarket-Sales-Dashboard/blob/main/outputs/salesdashboard.png
 - Sales Forecast : https://github.com/yashmonde24/Supermarket-Sales-Dashboard/blob/main/outputs/salesforecasting.png
